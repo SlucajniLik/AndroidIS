@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,20 +25,48 @@ public class ListS extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        SearchView searchView = (SearchView) findViewById(R.id.searchView);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+
+
+
+
 
         TextView  receiver_msg = (TextView) findViewById(R.id.textView);
 
         Intent intent = getIntent();
-        String str = intent.getStringExtra("message_key");
+        int num=intent.getIntExtra("message_key",0);
+        //String str = intent.getStringExtra("message_key");
+        //String str = (String) intent.getSerializableExtra("message_key");
 
-        receiver_msg.setText(str);
+        receiver_msg.setText(String.valueOf(num));
         listView = findViewById(R.id.listViewHeroes);
 
         //calling the method to display the heroes
-        getHeroes();
+        getHeroes(num);
     }
-    private void getHeroes() {
-        Call<List<Job>> call = RetrofitClient.getInstance().getMyApi().getJobs();
+    private void getHeroes(int idd) {
+        //Call<List<Job>> call = RetrofitClient.getInstance().getMyApi().getJobs();
+
+
+
+
+
+        Call<List<Job>> call = RetrofitClient.getInstance().getMyApi().getJobsOfHero(idd);
         call.enqueue(new Callback<List<Job>>() {
             @Override
             public void onResponse(Call<List<Job>> call, Response<List<Job>> response) {

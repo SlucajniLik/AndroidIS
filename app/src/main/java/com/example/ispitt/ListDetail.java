@@ -7,8 +7,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 ;import com.squareup.picasso.Picasso;
@@ -21,7 +24,7 @@ public class ListDetail extends AppCompatActivity {
 
  ImageView imgs;
 
-
+    Button SeeId;
 
 
     @Override
@@ -40,7 +43,7 @@ public class ListDetail extends AppCompatActivity {
 
 
 
-       String imagee="https://firebasestorage.googleapis.com/v0/b/library-a1c76.appspot.com/o/uploads%2FEnglish_Football_League_Logo.png?alt=media&token=60dd4941-086b-4eed-b617-6516b075c987";
+       String imagee="https://firebasestorage.googleapis.com/v0/b/library-a1c76.appspot.com/o/uploads%2F21692-500x700.jpg?alt=media&token=510fe9d2-9471-43db-8a48-61aba4aac896";
 imgs = findViewById(R.id.img);
 
 
@@ -71,12 +74,35 @@ Picasso.get().load(imagee).into(imgs);
         //Bitmap bitmap = BitmapFactory.decodeResource(getResources(),imagee)
         //imgs.setImageBitmap();
 
-        receiver_msg1.setText(jobss.getName());
+        receiver_msg1.setText("Ime:"+jobss.getName());
         receiver_msg2.setText(jobss.getNumber());
         receiver_msg3.setText(jobss.getType());
 
+        setupListeners(jobss);
+
+
+    }
+
+
+    private void setupListeners(Job job) {
+
+        SeeId = findViewById(R.id.seeId);
+      SeeId.setText("Kliknimmm");
+SeeId.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Toast.makeText(ListDetail.this,
+                job.getId()+"aaaa",
+                Toast.LENGTH_SHORT).show();
+    }
+});
 
 
 
     }
+
+
+
+
+
 }

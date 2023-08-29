@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
                              Intent i = new Intent(MainActivity.this, ListS.class);
+
                              String str = username.getText().toString();
-                             i.putExtra("message_key", str);
+                             i.putExtra("message_key", response.body().getId());
                              startActivity(i);
                          }
                          else

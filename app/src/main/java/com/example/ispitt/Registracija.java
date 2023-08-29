@@ -56,7 +56,7 @@ public class Registracija extends AppCompatActivity {
             @Override
             public void onResponse(Call<Hero> call, Response<Hero> response) {
 
-
+                Toast.makeText(getApplicationContext(),"Uspesno ste se registrovali",Toast.LENGTH_SHORT).show();
 
             }
 

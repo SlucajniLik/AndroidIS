@@ -7,10 +7,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ListS">
-    <ListView
-        android:id="@+id/listViewHeroes"
+
+    <SearchView
+        android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="60dp" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="324dp"
@@ -20,4 +22,16 @@
         tools:layout_editor_absoluteY="261dp"
         tools:text="sdsds"
         tools:visibility="visible" />
+    <ListView
+        android:id="@+id/listViewHeroes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+
+
+
+
+
 </LinearLayout>
