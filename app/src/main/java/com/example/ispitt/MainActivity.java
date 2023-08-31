@@ -58,11 +58,16 @@ public class MainActivity extends AppCompatActivity {
                                      Toast.LENGTH_SHORT).show();*/
 
 
+                               //Ovde zamneim zako hocu drugi projekat
+                             //Intent i = new Intent(MainActivity.this, ListS.class);
 
-                             Intent i = new Intent(MainActivity.this, ListS.class);
-
+                             //Za chart
+                             //Intent i = new Intent(MainActivity.this, Chart.class);
+                             Intent i = new Intent(MainActivity.this, Drawable.class);
                              String str = username.getText().toString();
-                             i.putExtra("message_key", response.body().getId());
+                             //za drugi projekat
+                             //i.putExtra("message_key", response.body().getId());
+                             i.putExtra("message_key",500 /*Integer.parseInt(password.getText().toString())*/);
                              startActivity(i);
                          }
                          else

@@ -16,6 +16,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Chart"
+            android:exported="false" />
+        <activity
+            android:name=".Drawable"
+            android:exported="false" />
+        <activity
+            android:name=".Draw"
+            android:exported="false" />
+        <activity
             android:name=".ListDetail"
             android:exported="false" />
         <activity

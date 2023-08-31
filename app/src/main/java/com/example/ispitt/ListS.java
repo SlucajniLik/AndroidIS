@@ -21,10 +21,17 @@ import retrofit2.Response;
 public class ListS extends AppCompatActivity {
     ListView listView;
     ArrayAdapter<String> adapter;
+    Draww draww;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+
+       // draww = new Draww(this,200);
+
+        //setContentView(draww);
+
         SearchView searchView = (SearchView) findViewById(R.id.searchView);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
